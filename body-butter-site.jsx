@@ -507,6 +507,7 @@ function ProductDetail({ product, addToCart, setView }) {
   const [size, setSize] = useState(p.sizes[0]);
   const [scent, setScent] = useState(SCENTS[0].name);
   const [sampleScents, setSampleScents] = useState([]);
+  const [strength, setStrength] = useState(2);
 
   if (!p) return null;
 
@@ -518,7 +519,7 @@ function ProductDetail({ product, addToCart, setView }) {
       product: p.name,
       size: size.size,
       price: size.price,
-      scent: isSampler ? sampleScents.join(', ') : scent,
+      scent: isSampler ? sampleScents.join(', ') : `${scent} · ${['Lightly', 'Moderately', 'Heavily'][strength - 1]} scented`,
       color: SCENTS.find(s => s.name === scent)?.color || productColor,
     });
   };
@@ -617,6 +618,39 @@ function ProductDetail({ product, addToCart, setView }) {
                   >
                     <div style={{ width: 16, height: 16, borderRadius: '50%', background: s.color, flexShrink: 0, boxShadow: 'inset 0 -2px 4px rgba(0,0,0,0.15)' }}></div>
                     <span style={{ fontSize: 12, fontWeight: 500 }}>{s.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {!isSampler && (
+            <div style={{ marginBottom: 36 }}>
+              <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Scent Strength</div>
+              <div style={{ fontSize: 13, color: '#7A6655', marginBottom: 16, lineHeight: 1.5 }}>
+                Everyone’s sense of smell is different — pick how strong you’d like it.
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+                {[
+                  { level: 1, label: 'Lightly scented' },
+                  { level: 2, label: 'Moderately scented' },
+                  { level: 3, label: 'Heavily scented' },
+                ].map((opt) => (
+                  <button
+                    key={opt.level}
+                    onClick={() => setStrength(opt.level)}
+                    aria-pressed={strength === opt.level}
+                    style={{
+                      padding: '16px 10px',
+                      borderRadius: 12,
+                      border: strength === opt.level ? '2px solid #2A1F18' : '1.5px solid #E2D5C0',
+                      background: strength === opt.level ? '#F3E9D7' : '#FBF6EE',
+                      textAlign: 'center',
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    <div aria-hidden style={{ fontSize: 22, marginBottom: 6, letterSpacing: 3 }}>{'👃'.repeat(opt.level)}</div>
+                    <div style={{ fontSize: 12, fontWeight: 500, color: '#2A1F18' }}>{opt.label}</div>
                   </button>
                 ))}
               </div>

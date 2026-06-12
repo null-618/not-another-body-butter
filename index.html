@@ -1337,6 +1337,7 @@ function ProductDetail({
   const [size, setSize] = useState(p.sizes[0]);
   const [scent, setScent] = useState(SCENTS[0].name);
   const [sampleScents, setSampleScents] = useState([]);
+  const [strength, setStrength] = useState(2);
   if (!p) return null;
   const isSampler = product === 'sampler';
   const productColor = product === 'butter' ? '#E8C9A0' : product === 'oil' ? '#D4B896' : '#E8B4C8';
@@ -1345,7 +1346,7 @@ function ProductDetail({
       product: p.name,
       size: size.size,
       price: size.price,
-      scent: isSampler ? sampleScents.join(', ') : scent,
+      scent: isSampler ? sampleScents.join(', ') : scent + ' \xB7 ' + ['Lightly', 'Moderately', 'Heavily'][strength - 1] + ' scented',
       color: SCENTS.find(s => s.name === scent)?.color || productColor
     });
   };
@@ -1577,7 +1578,66 @@ function ProductDetail({
       fontSize: 12,
       fontWeight: 500
     }
-  }, s.name))))), isSampler && React.createElement("div", {
+  }, s.name))))), !isSampler && React.createElement("div", {
+    style: {
+      marginBottom: 36
+    }
+  }, React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 600,
+      marginBottom: 8,
+      textTransform: 'uppercase',
+      letterSpacing: '0.08em'
+    }
+  }, "Scent Strength"), React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: '#7A6655',
+      marginBottom: 16,
+      lineHeight: 1.5
+    }
+  }, "Everyone’s sense of smell is different — pick how strong you’d like it."), React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: 12
+    }
+  }, [{
+    level: 1,
+    label: 'Lightly scented'
+  }, {
+    level: 2,
+    label: 'Moderately scented'
+  }, {
+    level: 3,
+    label: 'Heavily scented'
+  }].map(opt => React.createElement("button", {
+    key: opt.level,
+    onClick: () => setStrength(opt.level),
+    'aria-pressed': strength === opt.level,
+    style: {
+      padding: '16px 10px',
+      borderRadius: 12,
+      border: strength === opt.level ? '2px solid #2A1F18' : '1.5px solid #E2D5C0',
+      background: strength === opt.level ? '#F3E9D7' : '#FBF6EE',
+      textAlign: 'center',
+      transition: 'all 0.2s'
+    }
+  }, React.createElement("div", {
+    'aria-hidden': true,
+    style: {
+      fontSize: 22,
+      marginBottom: 6,
+      letterSpacing: 3
+    }
+  }, '👃'.repeat(opt.level)), React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 500,
+      color: '#2A1F18'
+    }
+  }, opt.label))))), isSampler && React.createElement("div", {
     style: {
       marginBottom: 36
     }

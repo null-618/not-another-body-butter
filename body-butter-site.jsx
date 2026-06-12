@@ -724,6 +724,27 @@ function About() {
         </div>
       </section>
 
+      <section style={{ padding: '40px 32px 90px', maxWidth: 840, margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.15em', color: '#C97B4F', marginBottom: 24, textTransform: 'uppercase' }}>Our Mission</div>
+        <p className="display" style={{ fontSize: 'clamp(26px, 3.4vw, 38px)', lineHeight: 1.4, fontWeight: 400, color: '#2A1F18', margin: 0 }}>
+          All-natural body butters that nourish sensitive, dry skin with simple, transparent ingredients and <span className="display-italic">subtle scents</span> — gentle, effective skincare that complements your personal fragrance instead of competing with it. So you feel comfortable, confident, and <span className="display-italic">authentically you.</span>
+        </p>
+      </section>
+
+      <section style={{ padding: '0 32px 100px', maxWidth: 720, margin: '0 auto' }}>
+        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.15em', color: '#C97B4F', marginBottom: 24, textTransform: 'uppercase', textAlign: 'center' }}>The Story</div>
+        <h2 className="display" style={{ fontSize: 'clamp(30px, 4.5vw, 46px)', lineHeight: 1.1, fontWeight: 400, marginBottom: 32, textAlign: 'center' }}>
+          Born from a simple <span className="display-italic">realization.</span>
+        </h2>
+        {[
+          "Finding a truly all-natural body butter shouldn't be difficult. Yet so many products on the market are filled with preservatives, synthetic fragrances, and additives that irritate the skin — especially for anyone with sensitivity or dryness.",
+          "Seeing that gap, we set out to make something different. Skincare that feels luxurious without being overwhelming. Formulas made with clean, recognizable ingredients. Scents that enhance your personal style rather than overpower it.",
+          "Our inspiration comes from people who want more from their daily routine — those who value wellness, simplicity, and authenticity. With every jar, we're redefining what it means to care for your skin: gentle, natural, soft to the touch, and effortlessly complementary to your lifestyle.",
+        ].map((p, i) => (
+          <p key={i} style={{ fontSize: 18, lineHeight: 1.8, color: '#5C4A3D', marginBottom: 22 }}>{p}</p>
+        ))}
+      </section>
+
       <section style={{ padding: '80px 32px', background: '#EDE2D0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40 }}>

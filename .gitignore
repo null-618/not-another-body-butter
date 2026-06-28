@@ -1,1 +1,12 @@
 .DS_Store
+
+# Working docs & temp files (not part of the website)
+*.docx
+~$*
+
+# Raw image extractions / selection working folders (kept locally, not in repo)
+doc_media/
+image-options/
+
+# Loose source product photos (chosen ones get embedded as base64 in index.html)
+1000013*.jpg

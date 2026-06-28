@@ -6,6 +6,24 @@ Guidance for Claude when working in this project. Read this first.
 
 A marketing + e-commerce website for **Not Another Body Butter**, a handcrafted shea body butter brand owned by Tré. Goal: a modern, conversion-ready, SEO-optimized site with an editorial magazine aesthetic. Selling transactions are **not** live yet — the current checkout is a labeled mockup. Tré wants to see the full purchase flow as a prototype before wiring up real payments.
 
+## Mission & brand story
+
+Use these as the source of truth for brand voice and positioning. Keep copy aligned with this mission; weave the themes in naturally rather than pasting these verbatim.
+
+**Mission statement**
+
+We create all-natural body butters that nourish sensitive and dry skin with simple, transparent ingredients and subtle scents. Our mission is to provide gentle, effective skincare that complements your personal fragrance — not competes with it — so you can feel comfortable, confident, and authentically you.
+
+**Brand story**
+
+This brand was born from a simple realization: finding a truly all-natural body butter shouldn't be difficult. Yet so many products on the market are filled with preservatives, synthetic fragrances, and additives that irritate the skin — especially for people with sensitivity or dryness.
+
+Seeing this gap, we set out to create something different. Skincare that feels luxurious without being overwhelming. Formulas made with clean, recognizable ingredients. Scents that enhance your personal style rather than overpower it.
+
+Our inspiration comes from the people who want more from their daily routine — those who value wellness, simplicity, and authenticity. With every jar, we're redefining what it means to care for your skin: gentle, natural, soft to the touch, and effortlessly complementary to your lifestyle.
+
+**Positioning themes to keep front of mind:** all-natural and clean ingredients, transparency, gentleness for sensitive/dry skin, subtle scents that complement (not compete with) personal fragrance, and authenticity. Note the "subtle scents that complement" theme sits alongside the 13 signature scents — frame scents as enhancing personal style, never overpowering.
+
 ## The brand
 
 **Products**
@@ -15,7 +33,7 @@ A marketing + e-commerce website for **Not Another Body Butter**, a handcrafted 
 
 **13 signature scents** (name — notes): Pink Fantasy (floral/sweet), Teakwood (woody/warm), Cashmere Falls (powdery/elegant), Baby Powder (clean/nostalgic), Vanilla Musk (sweet/sensual), Lemon Meringue (citrus/bright), The Perfect Gentlemen (sophisticated/bold), Juicy Pear (fruity/fresh), Blackberry (tart/deep), Fresh Linen (airy/clean), Sweet Autumn Nights (spicy/cozy), Piña Colada (tropical/creamy), Cacao (chocolatey/rich).
 
-**Voice & SEO keywords:** "shea body butter," "cold-whipped," "unrefined African shea," "cruelty-free," "handcrafted." Keep these woven into copy naturally.
+**Voice & SEO keywords:** "shea body butter," "cold-whipped," "unrefined African shea," "cruelty-free," "handcrafted," "all-natural," "clean ingredients," "for sensitive skin," "for dry skin," "subtle scent." Keep these woven into copy naturally.
 
 ## Design system
 
@@ -26,6 +44,7 @@ A marketing + e-commerce website for **Not Another Body Butter**, a handcrafted 
 ## Codebase
 
 Single-file React/TSX app. The entire site lives in **`body-butter-site.jsx`**.
+GitHub Repository - https://github.com/null-618/not-another-body-butter
 
 **Data constants (top of file):**
 - `IMAGES` — three product photos as base64 strings
